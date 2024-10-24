@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule Engine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Correct path to CSS file -->
+</head>
+<body>
+    <h1>Rule Engine Interface</h1>
+
+    <!-- Create Rule Section -->
+    <section>
+        <h2>Create Rule</h2>
+        <form id="createRuleForm">
+            <input type="text" id="ruleName" placeholder="Enter Rule Name" required><br>
+            <input type="text" id="ruleString" placeholder="Enter Rule String (e.g. age > 18)" required><br>
+
+            <!-- Key-Value Pairs Section -->
+            <h3>Parameters</h3>
+            <div id="parametersContainer">
+                <div class="parameter">
+                    <input type="text" class="paramKey" placeholder="Key (e.g. age)" required>
+                    <input type="text" class="paramValue" placeholder="Value (e.g. 18)" required>
+                    <button type="button" class="removeParam">Remove</button>
+                </div>
+            </div>
+            <button type="button" id="addParam">Add Parameter</button><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Rule</button>
+        </form>
+        <div id="createRuleResult"></div>
+    </section>
+
+    <!-- Combine Rules Section -->
+    <section>
+        <h2>Combine Rules</h2>
+        <form id="combineRuleForm">
+            <input type="text" id="rule1" placeholder="Enter Rule 1" required><br>
+            <input type="text" id="rule2" placeholder="Enter Rule 2" required><br>
+            <select id="combineOperator">
+                <option value="AND">AND</option>
+                <option value="OR">OR</option>
+            </select><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Combine Rules</button>
+        </form>
+        <div id="combineRuleResult"></div>
+    </section>
+
+    <!-- Evaluate Rule Section -->
+    
+<section>
+    <h2>Evaluate Rule</h2>
+    <form id="evaluateRuleForm">
+        <input type="text" id="evaluateRuleString" placeholder="Enter Rule String to Evaluate (e.g. age >= 18 AND height >= 170)" required><br>
+
+        <!-- Key-Value Pairs Section for Parameters -->
+        <h3>Parameters</h3>
+        <div id="parametersContainerEvaluate">
+            <div class="parameter">
+                <input type="text" class="paramKey" placeholder="Key (e.g. age)" required>
+                <input type="text" class="paramValue" placeholder="Value (e.g. 20)" required>
+                <button type="button" class="removeParam">Remove</button>
+            </div>
+        </div>
+         <button type="button" id="addDataParam">Add Parameter</button><br>
+
+        <button type="submit">Evaluate Rule</button>
+    </form>
+    <div id="evaluateRuleResult"></div>
+</section>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script> <!-- Correct path to JavaScript file -->
+</body>
+</html>
